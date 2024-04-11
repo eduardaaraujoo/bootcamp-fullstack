@@ -6,7 +6,7 @@ console.log(nome);
 
 // 2. Crie uma variável para armazenar o preço de uma camiseta e exiba-o.
 var valorCamisa = 54.00;
-console.log(valorCamisa);
+console.log(valorCamisa.toFixed(2));
 
 
 // 3. Corrija o código a seguir: let cidade = Recife
