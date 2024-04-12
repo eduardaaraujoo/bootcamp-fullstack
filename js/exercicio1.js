@@ -29,7 +29,7 @@ var mul = a * b;
 console.log(mul);
 
 // 5. Crie duas variáveis, atribua um valor numérico a cada uma delas. Após isso escreva um código if else para exibir se a primeira variável é maior que a segunda.
- var f1 = 18;
+ var f1 = 30;
  var f2 = 20;
 
  if (f1 > f2) {
@@ -44,10 +44,19 @@ var nota1 = 6;
 var nota2 = 8;
 var nota3 = 5;
 
-var media = nota1 + nota2 + nota3 / 3;
+var media = (nota1 + nota2 + nota3) / 3;
+
+
 
 if (media >= 7){
     console.log("Parabéns, você foi aprovado!")
 }else{
     console.log("Você foi reprovado!")
 }
+
+console.log(media);
+// == COMPARA VALORES COM COERÇÃO (CONVERSÃO)
+// === COMPARA VALOR E TIPO (EXATAMENTE IGUAL)
+
+// && => e => VERIFICA SE AMBAS CONDIÇÕES SÃO VERDADEIRAS
+// || => OU => VERIFICA SE UMA OU OUTRA CONDIÇÃO É VERDADEIRA
