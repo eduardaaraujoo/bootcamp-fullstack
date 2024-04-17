@@ -75,4 +75,4 @@ function verificarAprovacao(nota) {
         return "Reprovado!"
     }
 }
-console.log(calcularNota([6,8,2]));
+console.log(verificarAprovacao([6,8,2]));
