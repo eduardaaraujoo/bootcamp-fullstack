@@ -58,7 +58,7 @@
 
 
 //COM FUNÇÃO
-var listaMercado = [
+var listaMercado = [ 
     {nome: "Danone", preco: 3.50, quantidade: 6 },     //indice 0
     {nome: "Coca", preco: 8.80, quantidade: 3 },       //indice 1
     {nome: "Pão", preco: 9.00, quantidade: 9},         //indice 2
