@@ -17,39 +17,71 @@
 
 
 
+
+
 //Exercicio
 /**Crie uma função que receba uma lista de objetos representando vendas de produtos, onde cada objeto tem um nome do produto, uma categoria e um valor de venda. A função deve calcular o total de vendas para cada categoria de produto e retornar um objeto contendo essas informações */
 
-function calcularTotalVendasPorCategorias(produtosVendidos){
-    var categorias = [];
-    var contador = 0; //o contador ele controla quantas vezes a função do while vai ser exeutada
-   
-    //descobrir quais categorias existem 
-    while(contador < produtosVendidos.length){
-        categorias.push(produtosVendidos[contador].categoria)
-        contador++
+// { nome: "", categoria: "", preco: 0 }
+
+function calcularTotalDeVendasPorCategoria(produtosVendidos) {
+    var categorias = []; // =>  array de string
+
+    // Descobrir quais categorias existem
+    var contador = 0
+    while (contador < produtosVendidos.length) {
+        categorias.push(produtosVendidos[contador].categoria);
+        contador++;
     }
-    //set cria um array com elementos unicos 
-    categorias = new Set([...categorias]);
-    return categorias;
-    
+
+    // Cria um array com elementos únicos
+    categorias = [...new Set(categorias)];
+    // categorias: ["roupa", "comida"]
+
+    // [  { categoria: "roupa", valorTotal: 100 }, { categoria: "comida", 50 }  ]
+
+    // Cria um array de objetos inicializando o valorTotal como 0
+    var totalPorCategoria = []
+    contador = 0
+    while (contador < categorias.length) {
+        totalPorCategoria.push({ categoria: categorias[contador], valorTotal: 0 });
+        contador++;
+    }
+
+    // Percorrer o array e somar o valorTotal de cada categoria
+    // produtos: []...
+
+    /**
+     * totalPorCategoria: [
+                            { categoria: 'roupa', valorTotal: 0 }, // 0
+                            { categoria: 'comida', valorTotal: 0 } // 1
+                        ]
+     */
+
+    contador = 0;
+    var contador2 = 0;
+
+    // for (let contador = 0; contador < produtosVendidos.length; contador++) {
+    // }
+
+    while (contador < produtosVendidos.length) {
+        contador2 = 0;
+        while (contador2 < totalPorCategoria.length) {
+            if (produtosVendidos[contador].categoria === totalPorCategoria[contador2].categoria) {
+                totalPorCategoria[contador2].valorTotal += produtosVendidos[contador].preco;
+            }
+            contador2++;
+        }
+        contador++;
+    }
+    return totalPorCategoria;
 }
-    // var totalVendido = 0;
 
-//     while(contador < produtosVendidos.length) { //o length se usa pra saber quantos elementos tem na lista
-//        // totalVendido += produtosVendidos[contador].preco;
-//         totalVendido = produtosVendidos[contador].preco + totalVendido;
-//         contador++;
-//     }
-
-//     return totalVendido;
-// }
-
-//criar uma lista de produtos
-var listaProdutos = [
-    {nome: "Camiseta", categoria: "Roupas", preco: 20},
-    {nome: "Hamburguer", categoria: "Comida", preco: 16},
-    {nome: "Smartwatch", categoria: "Eletrônico", preco: 348}
+var listaDeProdutos = [
+    { nome: "Camiseta", categoria: "roupa", preco: 20 },
+    { nome: "Casaco", categoria: "roupa", preco: 40 },
+    { nome: "Refrigerante", categoria: "bebidas", preco: 10 },
+    { nome: "Pão", categoria: "comida", preco: 5 }
 ]
-//chamar a função
-console.log(calcularTotalVendasPorCategorias(listaProdutos));
+
+console.log(calcularTotalDeVendasPorCategoria(listaDeProdutos));
