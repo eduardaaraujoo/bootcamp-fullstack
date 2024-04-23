@@ -22,12 +22,14 @@
 
 function calcularTotalVendasPorCategorias(produtosVendidos){
     var categorias = [];
-
     var contador = 0; //o contador ele controla quantas vezes a função do while vai ser exeutada
+   
+    //descobrir quais categorias existem 
     while(contador < produtosVendidos.length){
         categorias.push(produtosVendidos[contador].categoria)
         contador++
     }
+    //set cria um array com elementos unicos 
     categorias = new Set([...categorias]);
     return categorias;
     
@@ -43,12 +45,11 @@ function calcularTotalVendasPorCategorias(produtosVendidos){
 //     return totalVendido;
 // }
 
+//criar uma lista de produtos
 var listaProdutos = [
     {nome: "Camiseta", categoria: "Roupas", preco: 20},
     {nome: "Hamburguer", categoria: "Comida", preco: 16},
     {nome: "Smartwatch", categoria: "Eletrônico", preco: 348}
 ]
-
-
-
+//chamar a função
 console.log(calcularTotalVendasPorCategorias(listaProdutos));
