@@ -26,10 +26,20 @@
 
 
 class Aluno {
-    constructor(nome, notas){     //primeira função a ser executada num classe
+    constructor(nome, notas, materia){     //primeira função a ser executada num classe
         this.nome = nome;
         this.notas = notas;
-        this.materia = "Inglês"
+        this.materia = materia || "Inglês"
+    }
+
+    calcularMedia() {
+        var contador = 0;
+        var soma = 0;
+        while(contador < this.notas.length){
+            soma += this.notas[contador];
+            contador++;
+        }
+        return soma / this.notas.length;
     }
 }
 
@@ -37,4 +47,4 @@ var aluno1 = new Aluno("Caio", [7,8,9]);
 var aluno2 = new Aluno("Eduarda", [9,6,9]);
 var aluno3 = new Aluno("Fabiana", [4,6,9]);
 
-console.log(`As notas de ${aluno2.nome} foram da prova de ${aluno1.materia}`);
+console.log(`A média do ${aluno1.nome} na prova de ${aluno1.materia} foi de: ${aluno1.calcularMedia()} `);
