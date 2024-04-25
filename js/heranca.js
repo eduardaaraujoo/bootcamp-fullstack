@@ -49,11 +49,43 @@
 //Crie um método para verificar se o funcionário terá aumento. 
 
 class Funcionarios {
+
+    _salario = 0;    //não precisa usar o this
+
     constructor(nome, sobrenome, setor){
         this._nome = nome;
         this._sobrenome = sobrenome;
         this._setor = setor;
     }
 
-      
+    get nome(){             //responsável pela leitura, logo ele retorna a propiedade
+      return this._nome;
+    }
+    set nome(novoNome){     //responsável pela atribuição, logo ele altera o valor
+        this._nome = novoNome;
+    }
+
+    get sobrenome(){
+        return this._sobrenome;
+    }
+    set sobrenome(novoSobrenome){
+        this._sobrenome = novoSobrenome;
+    }
+
+    get setor(){
+        return this._setor;
+    }
+    set setor(novoSetor){
+        this._setor = novoSetor;
+    }
+
+    get salario(){
+        return this._salario;
+    }
+    set salario(novoSalario){
+        this._salario = novoSalario;
+    }
 }
+
+var funcionario = new Funcionarios();
+console.log(funcionario);
