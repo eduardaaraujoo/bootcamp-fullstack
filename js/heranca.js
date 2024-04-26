@@ -106,9 +106,9 @@ class Funcionarios {
 
     verificaAumento(){
         if(this._setor === "TI"){
-            return "TI tem aumento de salário"
+            return "TI tem aumento de salário";
         }else{
-            return "Esse setor não tem aumento"
+            return "Esse setor não tem aumento";
         }
     }
 }
