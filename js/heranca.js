@@ -45,7 +45,7 @@
 //Crie um atributo salário dentro da classe
 //Crie um método para retornar o salário do funcionário de acordo com o setor 
 //(deve ter pelo menos 3 setores com diferentes salários entre si
-//Crie um método para reformar o nome completo do funcionário o setor e o salário dele
+//Crie um método para retornar o nome completo do funcionário o setor e o salário dele
 //Crie um método para verificar se o funcionário terá aumento. 
 
 class Funcionarios {
@@ -56,6 +56,14 @@ class Funcionarios {
         this._nome = nome;
         this._sobrenome = sobrenome;
         this._setor = setor;
+
+        if(setor === "TI"){
+            this._salario = 3500;
+        } else if (setor === "RH" ){
+            this._salario= 3000;
+        }else{
+            this._salario = 2700;
+        }
     }
 
     get nome(){             //responsável pela leitura, logo ele retorna a propiedade
@@ -85,7 +93,27 @@ class Funcionarios {
     set salario(novoSalario){
         this._salario = novoSalario;
     }
+
+    alterarnome(novoNome){
+        this._nome = novoNome;
+
+    }
+
+    //isso é um método e se usa dentro de uma classe
+    exibirDadosFuncionario(){
+       return `Nome completo: ${this._nome} ${this._sobrenome}, Setor: ${this._setor}, Salário: ${this._salario}`;
+    }
+
+    verificaAumento(){
+        if(this._setor === "TI"){
+            return "TI tem aumento de salário"
+        }else{
+            return "Esse setor não tem aumento"
+        }
+    }
 }
 
-var funcionario = new Funcionarios();
-console.log(funcionario);
+var funcionarios = new Funcionarios("Eduarda", "Araújo", "TI");
+console.log(funcionarios.exibirDadosFuncionario());  //chamou o método class e retornou
+// funcionarios.exibirDadosFuncionario();    // Chame o método usando uma instância da classe
+console.log(funcionarios.verificaAumento());
