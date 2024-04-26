@@ -2,6 +2,11 @@
 /*
  
 1. Crie uma Classe chamada Pessoa com as propriedades nome, sobrenome e idade, seus respectivos getters e setters, seus parâmetros de inicialização e crie um método para retornar o nome completo (nome e sobrenome) da pessoa.
+    1.1 Criar classe Pessoa
+    1.2 Criar o constructor (nome, sobrenome, idade)
+    1.3 Criar os getters e setters
+    1.4 Criari o método p/ retornar o nome completo
+
 2. Crie uma classe chamada Aluno que herda a classe Pessoa. Os parâmetros exclusivos da classe aluno serão turma, notas (um array de notas) e média (a média das notas que deverá ser calculada no constructor da classe)
 3. Crie um método dentro da classe aluno para retornar a média dele
 4. Crie um método que retorne se o aluno está aprovado (media >= 7), de recuperação (media < 7 e media >=5) ou reprovado (media < 5)
@@ -41,9 +46,10 @@ class Pessoa {
 
 
     nomeCompleto(){
-        return `Nome Completo: ${this._nome} ${this._sobrenome}`;
+        return `${this._nome} ${this._sobrenome}`;
     }
 }
 
 var pessoa = new Pessoa("Eduarda", "Araújo", 26);
 console.log(pessoa.nomeCompleto());
+console.log(pessoa.idade);
