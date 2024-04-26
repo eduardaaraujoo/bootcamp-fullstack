@@ -53,3 +53,57 @@ class Pessoa {
 var pessoa = new Pessoa("Eduarda", "Araújo", 26);
 console.log(pessoa.nomeCompleto());
 console.log(pessoa.idade);
+
+
+
+
+
+// 2. Crie uma classe chamada Aluno que herda a classe Pessoa. Os parâmetros exclusivos da classe aluno serão turma, notas (um array de notas) e média (a média das notas que deverá ser calculada no constructor da classe)
+
+class Aluno extends Pessoa {
+
+    #_turma = "";
+    #_notas = [];
+    #_media = 0;
+
+
+    constructor(nome, sobrenome, idade, turma, notas){
+        super(nome, sobrenome, idade)
+        this.#_turma = turma;
+        this.#_notas = notas;
+        //Calcular média
+    }
+    get turma(){
+        return this.#_turma;
+    }
+    set turma(novaTurma){
+        this.#_turma = novaTurma;
+    }
+
+    get notas(){
+        return this.#_notas;
+    }
+    set notas(novasNotas){
+        this.#_notas = novasNotas;
+    }
+
+    get media(){
+        return this.#_media
+    }
+    set media(novaMedia){
+        this.#_media = novaMedia;
+    }
+
+    calcularMedia(){
+
+        var somaDasNotas = 0;
+
+          for(let contador = 0; contador < this.#_notas.length;  contador++){
+            somaDasNotas = this.#_notas[contador];
+          }
+
+          return somaDasNotas / this.#_notas.length;
+    }
+}
+
+var aluno = new Aluno();
