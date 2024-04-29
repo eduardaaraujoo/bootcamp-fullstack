@@ -8,10 +8,24 @@
 
 
 //Arrow functions
-const calcularMedia = (notas) => {
-    var somaDasNotas = 0;
-    for(let contador = 0; contador < notas.length; contador++){
-        somaDasNotas += notas[contador];
-    }
-    return somaDasNotas;
+// const calcularMedia = (notas) => {
+//     var somaDasNotas = 0;
+//     for(let contador = 0; contador < notas.length; contador++){
+//         somaDasNotas += notas[contador];
+//     }
+//     return somaDasNotas;
+// }
+
+
+
+//Promises
+const esperarCincoSegundos = () =>{
+    setTimeout( () => {
+        console.log("5 segundos...")
+    }, 5000)
 }
+
+esperarCincoSegundos();
+console.log("Início");
+
+
