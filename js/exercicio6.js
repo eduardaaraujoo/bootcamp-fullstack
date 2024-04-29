@@ -71,7 +71,8 @@ class Aluno extends Pessoa {
         super(nome, sobrenome, idade)
         this.#_turma = turma;
         this.#_notas = notas;
-        //Calcular média
+        this.#_media = this.calcularMedia();
+        
     }
     get turma(){
         return this.#_turma;
@@ -99,11 +100,12 @@ class Aluno extends Pessoa {
         var somaDasNotas = 0;
 
           for(let contador = 0; contador < this.#_notas.length;  contador++){
-            somaDasNotas = this.#_notas[contador];
+            somaDasNotas += this.#_notas[contador];
           }
 
-          return somaDasNotas / this.#_notas.length;
+          return (somaDasNotas / this.#_notas.length).toFixed(1);
     }
 }
 
-var aluno = new Aluno();
+var aluno = new Aluno("Eduarda", "Araújo", 26, "ADS", [7, 7, 8]);
+console.log(aluno.media);
