@@ -71,8 +71,8 @@ function verificarAprovacao(nota) {
     
     if(media >= 7){
         return"Aprovado!"
-    }else{
+    } else {
         return "Reprovado!"
     }
 }
-console.log(verificarAprovacao([6,8,2]));
+console.log(verificarAprovacao([7,8,8]));
