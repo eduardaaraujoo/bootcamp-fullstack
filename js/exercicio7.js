@@ -63,4 +63,6 @@ console.log(subtrair(7, 3));
 
 
 //Consumo de APIs
-const URL = "https://7cc1-2804-1b0-f189-3f57-9364-62f2-223d-e765.ngrok-free.app/books";
+const URL = "https://7cc1-2804-1b0-f189-3f57-9364-62f2-223d-e765.ngrok-free.app/books"; 
+
+fetch();

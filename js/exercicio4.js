@@ -24,7 +24,7 @@
 
 // { nome: "", categoria: "", preco: 0 }
 
-function calcularTotalDeVendasPorCategoria(produtosVendidos) {
+function calcularTotalVendasPorCategoria(produtosVendidos) {
     var categorias = []; // =>  array de string
 
     // Descobrir quais categorias existem
@@ -84,7 +84,7 @@ var listaDeProdutos = [
     { nome: "Pão", categoria: "comida", preco: 5 }
 ]
 
-console.log(calcularTotalDeVendasPorCategoria(listaDeProdutos));
+console.log(calcularTotalVendasPorCategoria(listaDeProdutos));
 
 
 //Laços de repetição

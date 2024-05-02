@@ -107,5 +107,5 @@ class Aluno extends Pessoa {
     }
 }
 
-var aluno = new Aluno("Eduarda", "Araújo", 26, "ADS", [7, 7, 8]);
+var aluno = new Aluno("Eduarda", "Araújo", 26, "ADS", [7, 8, 8]);
 console.log(aluno.media);
