@@ -1,42 +1,115 @@
-//Sobre API's
-//aula do dia 23/04
-//PAROU EM 1H E 29 MIN  
- 
-// const somar = (a, b) => a + b
+// const express = require('express');
+import express from "express";
+const app = express();
+const port = 3000;
 
-// const somar = (a, b) => {
-//     return a + b;
-// }
-// console.log(somar(6,2));
+// Middleware para analisar JSON
+app.use(express.json());
 
+// Middleware para analisar dados de formulários URL-encoded
+app.use(express.urlencoded({ extended: true }));
 
-//Reescreva a função a seguir com arrow function
-/* function subtrair (num1, num2){
-   return num1 - num2;
- }
+var usuarios = [];
+let books = [
+    { title: "O Senhor dos Anéis", author: "J.R.R. Tolkien" },
+    { title: "Fundação", author: "Isaac Asimov" },
+    { title: "Duna", author: "Frank Herbert" }
+];
 
-const subtrair = (num1, num2) => {
-    return num1 - num2;
-}
+// Rota que retorna um array de livros
+app.get('/livros', (req, res) => {
 
-console.log(subtrair(7, 3)); 
-*/
+    res.json(books);
+});
 
-//PASSO A PASSO PARA CRIAR UMA PROMISE
-/*
-1. Crio função
-2. Escrevo o retorno da função sendo uma instancia promise
-3.Escreva a callback da promise (a função de parametro)
-4.Escrever o "caso" do sucesso = resolve
-5. Opcional: Escrever o caso do erro = reject
- */
-const subtrairAssincrono = (num1, num2) => {
-    return new Promise((resolve, reject) =>{
-         setTimeout(() => {
-            resolve(num1 - num2)
-         }, 3000)
+// Rota que adiciona um livro ao array de livros { title: 'kdjskd', author: 'skldjsl'}
+app.post('/livros', (request, response) => {
+    const novoLivro = request.body
+    books.push(novoLivro);
+    response.json(books)
+});
+
+let location = {
+    latitude: -23.550520,
+    longitude: -46.633308
+};
+
+// Rota que retorna uma localização específica
+app.get('/localizacao', (req, res) => {
+    res.json(location);
+});
+
+// Rota que recebe a nova localização { latitude: askj, longitude: kjahsd }
+app.post('/localizacao', (request, response) => {
+    // Alterar a localização atual
+    const { latitude, longitude } = request.body
+    // const latitude = request.body.latitude
+    // const longitude = request.body.longitude
+
+    location.latitude = latitude
+    location.longitude = longitude
+
+    response.json(location)
+
+});
+
+// Rota de login 
+app.post('/login', (req, res) => {
+
+    const { email, password } = req.body; // desestruturação => { email: "teste@gmail.com", password: "123"}
+    // const email = req.body.email;
+    // const password = req.body.password;
+
+    const usuario = usuarios.find(u => u.email === email && u.password === password);
+    if (usuario) {
+        res.json(usuario);
+    } else {
+        res.status(400).json({ erro: "Usuário ou senha incorretos" });
+    }
+});
+
+// Rota de criação de usuários 
+app.post('/criar_usuario', (req, res) => {
+    const { email, password } = req.body;
+    if (usuarios.find(u => u.email === email)) {
+        res.status(400).json({ erro: "Email já está em uso" });
+    } else {
+        usuarios.push({ id: usuarios.length + 1, email, password });
+        res.json({ status: 'Usuário criado com sucesso' });
+    }
+});
+
+// Rota de editar de usuários 
+app.put('/editar_usuario/:id', (req, res) => {
+    const { id } = req.params;
+    const { email, password } = req.body;
+    let usuarioEncontrado = usuarios.find((u, index) => {
+        if (u.id === id) {
+            usuarios[index] = { email, password };
+            return true;
+        }
     });
 
-}  
-subtrairAssincrono(57,28).then((resultado) => { console.log(resultado)})  //then() é um método e ele da retorno do sucesso e o parametro do THEN é uma função dentro dela
-//Caso de erro: não passar número como parâmetro
+    if (usuarioEncontrado) {
+        res.json({ status: 'Usuário atualizado com sucesso' });
+    } else {
+        res.status(404).json({ erro: 'Usuário não encontrado' });
+    }
+});
+
+// Rota de exclusão de usuários
+app.delete('/excluir_usuario/:id', (req, res) => {
+    const { id } = req.params;
+    const usuarioIndex = usuarios.findIndex(u => u.id === id);
+    if (usuarioIndex > -1) {
+        usuarios.splice(usuarioIndex, 1);
+        res.json({ status: 'Usuário excluído com sucesso' });
+    } else {
+        res.status(404).json({ erro: 'Usuário não encontrado' });
+    }
+});
+
+// Inicia o servidor na porta especificada
+app.listen(port, () => {
+console.log(`Servidor rodando na porta ${port}`);
+});
