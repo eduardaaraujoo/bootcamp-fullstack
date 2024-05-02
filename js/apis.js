@@ -111,5 +111,5 @@ app.delete('/excluir_usuario/:id', (req, res) => {
 
 // Inicia o servidor na porta especificada
 app.listen(port, () => {
-console.log(`Servidor rodando na porta ${port}`);
+    console.log(`Servidor rodando na porta ${port}`);
 });
