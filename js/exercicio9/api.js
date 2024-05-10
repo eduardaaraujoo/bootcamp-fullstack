@@ -1,3 +1,5 @@
+const express = require('express');
+const app = express();
 var usuarios = [];
 let books = [
     { title: "O Senhor dos Anéis", author: "J.R.R. Tolkien" },
@@ -5,7 +7,7 @@ let books = [
     { title: "Duna", author: "Frank Herbert" }
 ];
 
-// Rota que retorna um array de livros
+// Rota que ret
 app.get('/livros', (req, res) => {
 
     res.json(books);
@@ -31,8 +33,8 @@ app.get('/localizacao', (req, res) => {
 // Rota que recebe a nova localização { latitude: askj, longitude: kjahsd }
 app.post('/localizacao', (request, response) => {
     // Alterar a localização atual
-    const { latitude, longitude } = request.body
-    // const latitude = request.body.latitude
+const { latitude, longitude } = request.body  
+    // const latitude = request.body.latitude   
     // const longitude = request.body.longitude
 
     location.latitude = latitude
@@ -99,6 +101,6 @@ app.delete('/excluir_usuario/:id', (req, res) => {
 });
 
 // Inicia o servidor na porta especificada
-app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
+app.listen(3000, () => {
+    console.log(`Servidor rodando na porta ${3000}`);
 });

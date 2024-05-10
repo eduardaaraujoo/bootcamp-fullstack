@@ -174,7 +174,8 @@ const novoLivro = {
 const requisicaoAssincrona = async () => {
   try {
     //                   axios.metodo(url_da_api_com_a_rota, corpoDaRequisicao)
-    let response = await axios.post(URL + "/livros", novoLivro);
+    let response = await axios.p
+    ost(URL + "/livros", novoLivro);
     console.log(response.data)
   }
   catch (erro) {
