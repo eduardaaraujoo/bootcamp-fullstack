@@ -114,24 +114,24 @@ const URL = "http://localhost:3000"
 
 // Exercício 1: Criar uma requisição POST para adicionar um livro { title, author }
 
-const novoLivro = {
-  title: "Programação em Java",
-  author: "Deiel" 
-};
+// const novoLivro = {
+//   title: "Programação em Java",
+//   author: "Deiel" 
+// };
 
-fetch(URL + "/livros", {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(novoLivro)
-})
-  .then((retornoDoSucesso) => retornoDoSucesso.json())
-  .then((responseJSON) => {
-    console.log(responseJSON)
-  })
-.catch() retorno do erro
-.finally() retorno depois do sucesso e do erro
+// fetch(URL + "/livros", {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify(novoLivro)
+// })
+//   .then((retornoDoSucesso) => retornoDoSucesso.json())
+//   .then((responseJSON) => {
+//     console.log(responseJSON)
+//   })
+// .catch() retorno do erro
+// .finally() retorno depois do sucesso e do erro
 
 // Exercício 2: Reescrever o código da requisição anterior utilizando async await 
 
